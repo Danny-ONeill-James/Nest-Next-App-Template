@@ -1,0 +1,10 @@
+{
+  "name": "Nest-Next-App-Template",
+  "version": "1.0.0",
+  "description": "A template used for applications",
+  "main": "index.js",
+  "repository": "https://github.com/Danny-ONeill-James/Nest-Next-App-Template",
+  "author": "Danny <116497508+Danny-ONeill-James@users.noreply.github.com>",
+  "license": "MIT",
+  "private": false
+}
