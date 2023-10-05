@@ -5,6 +5,9 @@
   "main": "index.js",
   "repository": "https://github.com/Danny-ONeill-James/Nest-Next-App-Template",
   "author": "Danny <116497508+Danny-ONeill-James@users.noreply.github.com>",
-  "license": "MIT",
-  "private": false
+  "license": "UNLICENSED",
+  "private": true,
+  "workspaces": [
+    "api"
+  ]
 }
