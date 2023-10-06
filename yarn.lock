@@ -913,6 +913,11 @@
   dependencies:
     tslib "^2.4.0"
 
+"@trpc/client@^10.38.5":
+  version "10.38.5"
+  resolved "https://registry.yarnpkg.com/@trpc/client/-/client-10.38.5.tgz#f689e76e20bd88ecd231b2fe36b65a022438bb3e"
+  integrity sha512-tpGUsoAP+3CD/1KRqMdWZ+zebvB68/86SaVPAYHaEDozTFLQdNqTe98DS/T0S4hfh7WCKbMSObj40SCzE8amKQ==
+
 "@trpc/server@^10.38.5":
   version "10.38.5"
   resolved "https://registry.yarnpkg.com/@trpc/server/-/server-10.38.5.tgz#bb42d43e5cc6eec33069dcfce1974872ab547734"
