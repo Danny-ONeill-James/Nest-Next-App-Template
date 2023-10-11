@@ -16,6 +16,7 @@ Make sure you have the following tools installed on your machine:
 
 - [Node.js](https://nodejs.org/) (v14 or higher)
 - [Yarn](https://classic.yarnpkg.com/en/docs/install) (v1 or v2)
+- [Docker](https://www.docker.com/get-started) & [Docker Compose](https://docs.docker.com/compose/install/)
 
 ### Installation
 
@@ -31,6 +32,16 @@ cd Nest-Next-App-Template
 # Install dependencies
 yarn install
 ```
+
+### Runnung with Docker
+
+To run the application using Docker, execute:
+
+```bash
+docker-compose up
+```
+
+This command will start all the services defined in your docker-compose.yml file.
 
 ### Usage
 
