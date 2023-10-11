@@ -1,24 +1,51 @@
-import { Injectable } from '@nestjs/common';
+import { Injectable, NotFoundException } from '@nestjs/common';
+import { InjectRepository } from '@nestjs/typeorm';
+import { Repository } from 'typeorm';
+import { CreateUserDto } from './dto/create-user.dto';
+import { UpdateUserDto } from './dto/update-user.dto';
+import { UserEntity } from './entities/user.entity';
 
-export type User = any; //TODO: create a user interface
+export type UserType = UserEntity; //TODO: create a user interface
 
 @Injectable()
 export class UsersService {
-  //TODO: Transfer this into a database schema
-  private readonly users = [
-    {
-      userId: 1,
-      username: 'Joe',
-      password: 'changeme',
-    },
-    {
-      userId: 2,
-      username: 'Blogs',
-      password: 'guess',
-    },
-  ];
+  constructor(
+    @InjectRepository(UserEntity)
+    private readonly userRepository: Repository<UserEntity>,
+  ) {}
 
-  async findOne(username: string): Promise<User | undefined> {
-    return this.users.find((user) => user.username === username);
+  createUser(createUserDto: CreateUserDto): Promise<UserEntity> {
+    const user: UserEntity = new UserEntity();
+    user.username = createUserDto.username;
+    user.email = createUserDto.email;
+    user.password = createUserDto.password;
+    user.isActive = true; //TODO: set as false and validate email
+    return this.userRepository.save(user);
+  }
+
+  findAllUser(): Promise<UserEntity[]> {
+    return this.userRepository.find();
+  }
+
+  async findOne(id: string): Promise<UserEntity> {
+    const user = await this.userRepository.findOneBy({ id });
+    if (!user) {
+      throw new NotFoundException(`User with id ${id} not found`);
+    }
+    return user;
+  }
+
+  updateUser(id: string, updateUserDto: UpdateUserDto): Promise<UserEntity> {
+    const user: UserEntity = new UserEntity();
+    user.id = id;
+    user.username = updateUserDto.username;
+    user.email = updateUserDto.email;
+    user.password = updateUserDto.password;
+    return this.userRepository.save(user);
+  }
+
+  async deleteUser(id: string): Promise<UserEntity> {
+    await this.userRepository.softDelete(id);
+    return this.userRepository.findOneOrFail({ where: { id } });
   }
 }

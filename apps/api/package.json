@@ -29,6 +29,8 @@
     "@nestjs/platform-express": "^10.0.0",
     "@nestjs/typeorm": "^10.0.0",
     "@trpc/server": "^10.38.5",
+    "class-transformer": "^0.5.1",
+    "class-validator": "^0.14.0",
     "cross-env": "5.0.5",
     "passport": "^0.6.0",
     "passport-jwt": "^4.0.1",

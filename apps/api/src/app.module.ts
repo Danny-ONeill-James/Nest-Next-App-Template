@@ -9,18 +9,18 @@ import { UsersModule } from './users/users.module';
 
 @Module({
   imports: [
+    ConfigModule.forRoot(),
     TypeOrmModule.forRoot({
       type: 'postgres',
-      host: 'localhost',
+      host: process.env.DATABASE_HOST,
       port: 5432,
-      password: 'pass123',
-      username: 'postgres',
-      entities: [],
-      database: 'postgres',
+      password: process.env.DATABASE_PASSWORD,
+      username: process.env.DATABASE_USERNAME,
+      autoLoadEntities: true,
+      database: process.env.DATABASE_DATABASE,
       synchronize: true,
       logging: true,
     }),
-    ConfigModule.forRoot(),
     TrpcModule,
     AuthModule,
     UsersModule,
