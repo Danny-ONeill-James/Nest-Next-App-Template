@@ -1,10 +1,25 @@
 {
-  "name": "Nest-Next-App-Template",
+  "name": "nest-next-app-template",
   "version": "1.0.0",
   "description": "A template used for applications",
   "main": "index.js",
+  "scripts": {
+    "dev": "concurrently \"yarn workspace api dev\" \"yarn workspace web dev\"",
+    "lint": "yarn workspace api lint && yarn workspace web lint",
+    "build:api": "yarn workspace api build",
+    "build:web": "yarn workspace web build",
+    "start:api": "yarn workspace api start:prod",
+    "start:web": "yarn workspace web start"
+  },
   "repository": "https://github.com/Danny-ONeill-James/Nest-Next-App-Template",
   "author": "Danny <116497508+Danny-ONeill-James@users.noreply.github.com>",
-  "license": "MIT",
-  "private": false
+  "license": "UNLICENSED",
+  "private": true,
+  "workspaces": [
+    "apps/api",
+    "apps/web"
+  ],
+  "devDependencies": {
+    "concurrently": "^8.2.1"
+  }
 }
