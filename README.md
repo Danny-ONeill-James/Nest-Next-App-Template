@@ -43,6 +43,15 @@ yarn dev
 
 This will launch both the NestJS backend and the Next.js frontend, making your application accessible at http://localhost:3000 and the API avaialble at http://localhost:4000
 
+## API Testing with Postman
+
+We have provided both a Postman collection and an associated environment to facilitate testing of the API endpoints. You can find these files in the [`documentation/postman-collections`](./documentation/postman-collections/) directory:
+
+- **Collection**: `Auth.postman_collection.json`
+- **Environment**: `Nest-Next-App-Template Environment.postman_environment.json`
+
+To start testing, simply import the respective `.json` files into Postman.
+
 ### Features
 
 - **Full-stack TypeScript Development**: Enjoy the benefits of TypeScript both on the server and client sides for enhanced type safety and productivity.
